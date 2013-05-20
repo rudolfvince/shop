@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @category    Inchoo
+ * @package     Inchoo_MaxOrderAmount
+ * @author      Branko Ajzele <ajzele@gmail.com>
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <SalesXp_Test>
+            <version>1.0.0.0</version>
+        </SalesXp_Test>
+    </modules>
+    <global>
+        <models>
+            <salesxp_test>
+                <class>SalesXp_Test_Model</class>
+            </salesxp_test>
+        </models>
+    </global>
+    <frontend>
+        <events>
+            <controller_action_predispatch_customer_account_createpost>
+                <observers>
+                    <salesxp_test_inspectCustomerRegistrationData>
+                        <class>salesxp_test/observer</class>
+                        <method>inspectCustomerRegistrationData</method>
+                    </salesxp_test_inspectCustomerRegistrationData>
+                </observers>
+            </controller_action_predispatch_customer_account_createpost>
+        </events>
+    </frontend>
+</config>
